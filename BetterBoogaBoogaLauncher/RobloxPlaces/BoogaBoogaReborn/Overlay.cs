@@ -61,15 +61,19 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
                     if (ACEnabled)
                     {
-                        Task.Run(() =>
+                        Task.Factory.StartNew(() =>
                         {
                             while (ACEnabled && (Focused || Keymap.IsRobloxFocused()))
                             {
-                                Thread.Sleep(1);
-                                Mouse.MouseEvent(Mouse.MouseEventFlags.MOUSEEVENTF_LEFTDOWN);
+                                if (numericUpDown1.Value > 0)
+                                    Thread.Sleep((int)numericUpDown1.Value);
+
+                                if (checkBox1.Checked)
+                                    Mouse.MouseEvent(Mouse.MouseEventFlags.MOUSEEVENTF_RIGHTDOWN);
+                                else Mouse.MouseEvent(Mouse.MouseEventFlags.MOUSEEVENTF_LEFTDOWN);
                             }
                             ACEnabled = false;
-                        });
+                        }); // hopefully this optimizes it a bit
                     }
                 }
             }
