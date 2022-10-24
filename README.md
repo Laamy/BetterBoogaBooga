@@ -2,7 +2,7 @@
 
 This is a custom launcher that builds its self into roblox to enhance your gameplay experience
 
-https://i.imgur.com/vs7SHFe.png
+![launcher]([h[ttp://url/to/img.pn](https://i.imgur.com/vs7SHFe.png)g](https://i.imgur.com/vs7SHFe.png))
 
 It adds a list of utilities like autoclickers and cps counters "into" your roblox via an overlay using window hooks
 said utilities are accessed via the roblox icon in the top left corner
