@@ -10,4 +10,4 @@ said utilities are accessed via the roblox icon in the top left corner
 ![ingame](https://i.imgur.com/svsKL0v.png)
 
 # How to install?
-Download the latest release .exe file put it into its own folder then run it as administrator then launch roblox
+Download the latest release .exe file put it into its own folder then run it as administrator & launch roblox
