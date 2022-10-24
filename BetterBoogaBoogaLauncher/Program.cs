@@ -1,5 +1,7 @@
 ﻿#region Imports
 
+using BetterBoogaBoogaLauncher.SDK;
+using BetterBoogaBoogaLauncher.SDK.Structs;
 using Microsoft.Win32;
 
 using System;
@@ -51,17 +53,19 @@ namespace BetterBoogaBoogaLauncher
             }
             else
             {
-                Task.Run(() => Application.Run(new LauncherWindow()));
+                Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
 
                 la = Launcher.ParseArgs(args[0]);
 
                 var robloxVersions = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Roblox\\Versions");
 
-                RobloxProcess.roblox = Process.Start(robloxVersions[robloxVersions.Length - 1] +
+                Task.Factory.StartNew(() => {
+                    RobloxProcess.roblox = Process.Start(robloxVersions[robloxVersions.Length - 1] +
                     "\\RobloxPlayerBeta.exe",
                     $"--play -a https://www.roblox.com/Login/Negotiate.ashx -t {la.GameInfo}" +
                     $" -j {HttpUtility.UrlDecode(la.PlaceLauncherUrl)} -b {la.TrackerId} --launchtime={la.LaunchTime}" +
                     $" --rloc {la.RobloxLocale} --gloc {la.GameLocale}");
+                });
 
                 Thread.Sleep(-1); // pause console
             }

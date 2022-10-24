@@ -32,10 +32,8 @@
             this.robloxTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.formBackground = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.formBackground)).BeginInit();
             this.SuspendLayout();
@@ -57,27 +55,17 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(147, 204);
+            this.label1.Location = new System.Drawing.Point(150, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Starting Rolbox .";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::BetterBoogaBoogaLauncher.Properties.Resources.robloxlogo;
-            this.pictureBox1.Location = new System.Drawing.Point(171, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.label1.Text = "Starting Roblox .";
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::BetterBoogaBoogaLauncher.Properties.Resources.robloxlogo;
-            this.pictureBox2.Location = new System.Drawing.Point(171, 72);
+            this.pictureBox2.Location = new System.Drawing.Point(170, 76);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(85, 85);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,14 +90,12 @@
             this.ClientSize = new System.Drawing.Size(430, 278);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.formBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LauncherWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LauncherWindow";
             this.Load += new System.EventHandler(this.LauncherWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.formBackground)).EndInit();
             this.ResumeLayout(false);
@@ -121,7 +107,6 @@
         private System.Windows.Forms.Timer robloxTimer;
         private System.Windows.Forms.Timer SuspendTimer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox formBackground;
     }

@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
 
@@ -11,6 +13,28 @@ namespace BetterBoogaBoogaLauncher
     {
         public LauncherWindow() => InitializeComponent();
 
+        public void CancelShutdown()
+        {
+            robloxTimer.Enabled = false;
+            SuspendTimer.Enabled = false;
+
+            Close();
+        }
+
+        public void InitRobloxDetectTask()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(1);
+
+                    if (Process.GetProcessesByName("RobloxPlayerBeta").Length == 0)
+                        Process.GetCurrentProcess().Kill(); // means no roblox instances r open
+                }
+            });
+        }
+
         private void RobloxTimer_Tick(object sender, EventArgs e)
         {
             foreach (Process proc in Process.GetProcesses())
@@ -19,30 +43,24 @@ namespace BetterBoogaBoogaLauncher
                 {
                     switch (placeId)
                     {
-                        case "10758111998":
+                        case "10758111998": // reborn
 
-                            robloxTimer.Enabled = false;
-                            SuspendTimer.Enabled = false;
-
-                            Close();
-
+                            CancelShutdown();
+                            InitRobloxDetectTask();
                             RobloxPlaces.BoogaBoogaReborn.Index.Init();
 
                             return;
 
                         case "11337066400": // pvp game
 
-                            robloxTimer.Enabled = false;
-                            SuspendTimer.Enabled = false;
-
-                            Close();
-
+                            CancelShutdown();
+                            InitRobloxDetectTask();
                             RobloxPlaces.BoogaBoogaReborn.Index.Init();
 
                             return;
                     }
 
-                    Process.GetCurrentProcess().Kill(); // might combine everything into the one process
+                    Process.GetCurrentProcess().Kill();
                 }
             }
         }

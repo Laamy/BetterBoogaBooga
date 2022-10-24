@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,38 +67,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.panel2.Controls.Add(this.checkBox2);
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(97, 22);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(134, 108);
+            this.panel2.Size = new System.Drawing.Size(134, 149);
             this.panel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(12, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "[F6] AutoClicker";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 45);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(79, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Invert Click";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // numericUpDown1
             // 
@@ -113,10 +88,43 @@
             this.numericUpDown1.Size = new System.Drawing.Size(104, 20);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
-            1,
+            33,
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(15, 45);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(79, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Invert Click";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "[F6] AutoClicker";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(15, 118);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(105, 17);
+            this.checkBox2.TabIndex = 3;
+            this.checkBox2.Text = "Developer Mode";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // Overlay
             // 
@@ -136,6 +144,7 @@
             this.Text = "Overlay";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(25)))), ((int)(((byte)(24)))));
             this.Load += new System.EventHandler(this.Overlay_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Update);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -151,8 +160,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }

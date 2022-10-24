@@ -73,6 +73,10 @@
     <Compile Include="RobloxPlaces\BoogaBoogaReborn\Overlay.Designer.cs">
       <DependentUpon>Overlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="SDK\LauncherUIRenderContext.cs" />
+    <Compile Include="SDK\Structs\LActor.cs" />
+    <Compile Include="SDK\Structs\LTextLabel.cs" />
+    <Compile Include="SDK\Structs\LWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

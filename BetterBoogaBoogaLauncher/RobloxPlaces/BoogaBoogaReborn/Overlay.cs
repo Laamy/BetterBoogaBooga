@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BetterBoogaBoogaLauncher.SDK;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -77,6 +78,12 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                     }
                 }
             }
+
+
+            if (e.vkey == VKeyCodes.KeyDown || e.vkey == VKeyCodes.KeyUp) // probably gonna need 2 delegate this
+            {
+                Invalidate();
+            }
         }
 
         private void OnAdjust(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
@@ -142,11 +149,36 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             panel1.Visible = !panel1.Visible;
         }
 
-        // multi instance has a few bugs but should work seemlessly
-        private void timer1_Tick(object sender, EventArgs e)
+        bool devMode = false;   
+
+        LauncherUIRenderContext ctx = new LauncherUIRenderContext(null);
+        private void Update(object sender, PaintEventArgs e)
         {
-            if (Process.GetProcessesByName("RobloxPlayerBeta").Length == 0)
-                Process.GetCurrentProcess().Kill(); // means no roblox instances r open
+            ctx.SetGraphics(e.Graphics);
+
+            if (devMode)
+            {
+                int demo = ctx.Window("Demo window");
+                //ctx.Window_SetAnchor(demo, SDK.Structs.LAnchor.Left);
+                ctx.Window_SetPos(demo, 25, 25);
+                ctx.Window_SetSize(demo, 120, 100);
+
+                ctx.Window_Add_TextLabel(demo, "[F6] AutoClicker", 9.5f);
+                ctx.Window_Add_TextLabel(demo, "[" + (checkBox1.Checked ? "✔" : "❌") + "] Inverted", 9.5f);
+                ctx.Window_Add_TextLabel(demo, "[" + numericUpDown1.Value + "] ClickerSpeed", 9.5f);
+            }
+
+            ctx.DrawWindows();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) => Invalidate();
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e) => Invalidate();
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            devMode = checkBox2.Checked;
+
+            Invalidate();
         }
     }
 }
