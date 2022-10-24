@@ -1,6 +1,7 @@
 ﻿using BetterBoogaBoogaLauncher.SDK;
+
 using System;
-using System.Diagnostics;
+using System.MDI; // custom library
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -17,6 +18,8 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
         private void Overlay_Load(object sender, EventArgs e)
         {
+            textBox1.Text = MDIFile.CheckReplaceRead("Documents\\notes.txt", "I put notes here");
+
             uint robloxProcId = (uint)Program.RobloxProcess.roblox.Id;
 
             //int initalStyle = User32.GetWindowLong(Handle, -20);
@@ -179,6 +182,12 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             devMode = checkBox2.Checked;
 
             Invalidate();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MDIDirectory.CheckCreate("Documents");
+            MDIFile.Write("Documents\\notes.txt", textBox1.Text);
         }
     }
 }

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileIO.cs" />
     <Compile Include="Keymap.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="LauncherWindow.cs">

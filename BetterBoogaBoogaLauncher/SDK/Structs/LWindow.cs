@@ -10,6 +10,10 @@ namespace BetterBoogaBoogaLauncher.SDK.Structs
         public int x, y;
         public int width, height;
 
+        public bool dragging = false;
+
+        public int dx = 0, dy = 0;
+
         public string name;
 
         public Brush fillColor = Brushes.Red; // default
