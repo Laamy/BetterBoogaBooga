@@ -18,6 +18,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
         private void Overlay_Load(object sender, EventArgs e)
         {
+            LoadConfig();
             textBox1.Text = MDIFile.CheckReplaceRead("Documents\\notes.txt", "I put notes here");
 
             uint robloxProcId = (uint)Program.RobloxProcess.roblox.Id;
@@ -174,12 +175,39 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             ctx.DrawWindows();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) => Invalidate();
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e) => Invalidate();
+        public void LoadConfig()
+        {
+            if (Program.config.KeyExists("inverted", "Autoclicker"))
+                checkBox1.Checked = Program.config.Read("inverted", "Autoclicker") == "1";
+
+            if (Program.config.KeyExists("clickspeed", "Autoclicker"))
+                numericUpDown1.Value = decimal.Parse(Program.config.Read("clickspeed", "Autoclicker"));
+
+            if (Program.config.KeyExists("devmode", "Settings"))
+            {
+                checkBox2.Checked = Program.config.Read("devmode", "Settings") == "1";
+                devMode = checkBox2.Checked;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.config.Write("inverted", checkBox1.Checked ? "1" : "0", "Autoclicker");
+
+            Invalidate();
+        }
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            Program.config.Write("clickspeed", numericUpDown1.Value.ToString(), "Autoclicker");
+
+            Invalidate();
+        }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             devMode = checkBox2.Checked;
+
+            Program.config.Write("devmode", devMode ? "1" : "0", "Settings");
 
             Invalidate();
         }
