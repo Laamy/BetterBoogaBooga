@@ -8,6 +8,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.MDI;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
@@ -22,6 +23,7 @@ namespace BetterBoogaBoogaLauncher
     internal class Program
     {
         public static LauncherArgs la;
+        public static MDIInIFile config = new MDIInIFile();
 
         public class RobloxProcess
         {
@@ -44,11 +46,27 @@ namespace BetterBoogaBoogaLauncher
             key.Close();
         }
 
+        public static bool CheckAdminPerms() => new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+
         static void Main(string[] args)
         {
-            if (args.Length == 0 && new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
+            if (File.Exists(MDI.mdiBase + "config.ini"))
+            {
+                if (config.KeyExists("RequiresReinstall", "System")
+                    && config.Read("RequiresReinstall", "System") != "0")
+                {
+                    if (!CheckAdminPerms())
+                    {
+                        MessageBox.Show("Roblox cant start due to needing a reinstall", "BetterBoogaBooga");
+                        Process.GetCurrentProcess().Kill();
+                    }
+                }
+            }
+
+            if (args.Length == 0 && CheckAdminPerms())
             {
                 ReplaceRoblox();
+                config.Write("RequiresReinstall", "0", "System");
                 MessageBox.Show("Installed launcher, you many now close this window.", "BetterBoogaBooga");
             }
             else
