@@ -69,7 +69,7 @@ namespace BetterBoogaBoogaLauncher
                 }
             }
 
-            if (args.Length == 0 && CheckAdminPerms())
+            if (args.Length == 0)
             {
                 Application.Run(new InstallerWindow());
             }
@@ -80,6 +80,8 @@ namespace BetterBoogaBoogaLauncher
                 la = Launcher.ParseArgs(args[0]);
 
                 var robloxVersions = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Roblox\\Versions");
+
+                // https://setup.rbxcdn.com/version
 
                 Task.Factory.StartNew(() => {
                     RobloxProcess.roblox = Process.Start(robloxVersions[robloxVersions.Length - 1] +
