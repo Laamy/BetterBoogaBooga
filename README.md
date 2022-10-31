@@ -1,3 +1,9 @@
+# Links
+Discord: https://discord.gg/NaSuW2bSYY
+
+# Why doesnt the UI show up unless im in reborn or the booga pvp game?
+because its built for booga but we will go ahead and add a way to access the menu in every roblox place soon
+
 # BetterBoogaBooga
 
 This is a custom launcher that builds its self into roblox to enhance your gameplay experience
@@ -10,4 +16,4 @@ said utilities are accessed via the roblox icon in the top left corner
 ![ingame](https://i.imgur.com/svsKL0v.png)
 
 # How to install?
-Download the latest release .exe file put it into its own folder then run it as administrator & launch roblox
+Download the latest release .exe file then run it as administrator & launch roblox
