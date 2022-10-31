@@ -107,9 +107,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
             IntPtr focusInsert = IntPtr.Zero;
 
-            StringBuilder sb = new StringBuilder("Roblox".Length + 1);
-            User32.GetWindowText(User32.GetForegroundWindow(), sb, "Roblox".Length + 1);
-            if (sb.ToString() == "Roblox")
+            if (Keymap.IsRobloxFocused()) // broken h
                 focusInsert = (IntPtr)(-1);
             focusInsert = (IntPtr)(-2);
 

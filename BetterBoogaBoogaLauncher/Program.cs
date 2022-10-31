@@ -83,24 +83,34 @@ namespace BetterBoogaBoogaLauncher
 
                 string robloxFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
                     + "\\Roblox\\Versions";
+                string robloxPFPath = "C:\\Program Files (x86)\\Roblox\\Versions"; // some people have other folder so this fixes it ig
 
                 WebClient wc = new WebClient();
 
                 RobloxProcess.version = wc.DownloadString("https://setup.rbxcdn.com/version");
 
-                if (!Directory.Exists(robloxFolder + "\\" + RobloxProcess.version))
+                string robloxPath = "";
+
+                if (!Directory.Exists(robloxFolder + "\\" + RobloxProcess.version) && !Directory.Exists(robloxPFPath + "\\" + RobloxProcess.version))
                 {
                     config.Write("RequiresReinstall", "1", "System");
 
                     MessageBox.Show("Latest roblox version not detected", "BBRB");
                     Process.GetCurrentProcess().Kill();
                 }
+                else
+                {
+                    if (Directory.Exists(robloxFolder + "\\" + RobloxProcess.version))
+                        robloxPath = robloxFolder + "\\" + RobloxProcess.version;
+
+                    if (Directory.Exists(robloxPFPath + "\\" + RobloxProcess.version))
+                        robloxPath = robloxPFPath + "\\" + RobloxProcess.version;
+                }
 
                 Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
 
                 Task.Factory.StartNew(() => {
-                    RobloxProcess.roblox = Process.Start(robloxFolder + "\\" + RobloxProcess.version +
-                    "\\RobloxPlayerBeta.exe",
+                    RobloxProcess.roblox = Process.Start(robloxPath + "\\RobloxPlayerBeta.exe",
                     $"--play -a https://www.roblox.com/Login/Negotiate.ashx -t {la.GameInfo}" +
                     $" -j {HttpUtility.UrlDecode(la.PlaceLauncherUrl)} -b {la.TrackerId} --launchtime={la.LaunchTime}" +
                     $" --rloc {la.RobloxLocale} --gloc {la.GameLocale}");

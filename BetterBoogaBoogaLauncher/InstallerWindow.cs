@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace BetterBoogaBoogaLauncher
@@ -49,7 +50,34 @@ namespace BetterBoogaBoogaLauncher
             var robloxVersions = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Roblox\\Versions");
 
             Program.config.Write("RequiresReinstall", "1", "System");
-            Program.ReplaceRoblox(robloxVersions[robloxVersions.Length - 1] + "\\RobloxPlayerLauncher.exe");
+
+
+            string robloxFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+                + "\\Roblox\\Versions";
+            string robloxPFPath = "C:\\Program Files (x86)\\Roblox\\Versions"; // some people have other folder so this fixes it ig
+
+            WebClient wc = new WebClient();
+
+            Program.RobloxProcess.version = wc.DownloadString("https://setup.rbxcdn.com/version");
+
+            string robloxPath = "";
+
+            if (!Directory.Exists(robloxFolder + "\\" + Program.RobloxProcess.version) && !Directory.Exists(robloxPFPath + "\\" + Program.RobloxProcess.version))
+            {
+                Program.config.Write("RequiresReinstall", "1", "System");
+
+                MessageBox.Show("Latest roblox version not detected (FATAL FAILURE)", "BBRB");
+                return;
+            }
+            else
+            {
+                if (Directory.Exists(robloxFolder + "\\" + Program.RobloxProcess.version))
+                    robloxPath = robloxFolder + "\\" + Program.RobloxProcess.version;
+
+                if (Directory.Exists(robloxPFPath + "\\" + Program.RobloxProcess.version))
+                    robloxPath = robloxPFPath + "\\" + Program.RobloxProcess.version;
+            }
+            Program.ReplaceRoblox(robloxPath + "\\RobloxPlayerLauncher.exe");
 
             progressBar1.Value = 100;
 
