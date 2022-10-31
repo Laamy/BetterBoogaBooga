@@ -67,7 +67,7 @@ namespace BetterBoogaBoogaLauncher
                 button2.Enabled = false;
                 button3.Enabled = false;
 
-                Text += " (Requires Administrator";
+                Text += " (Requires Administrator)";
             }
         }
     }
