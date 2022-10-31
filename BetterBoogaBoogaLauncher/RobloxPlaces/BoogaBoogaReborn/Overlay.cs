@@ -99,8 +99,6 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                 out rect
             );
 
-            Console.WriteLine("hi");
-
             int x = rect.Left + 12,
                 y = rect.Top + 35; // cuz title bar & resizing
 
@@ -119,6 +117,17 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
             TopMost = true;
             //User32.SetWindowPos(Handle, new IntPtr(1), 0, 0, 0, 0, 2 | 1 | 10); // reload
+
+            if (!Keymap.IsRobloxFocused() && !Focused) // hide UI if roblox/ui isn't focused
+            {
+                if (Opacity != 0)
+                    Opacity = 0;
+            }
+            else
+            {
+                if (Opacity != 1)
+                    Opacity = 1;
+            }
         }
 
         User32.WinEventDelegate overDel;
