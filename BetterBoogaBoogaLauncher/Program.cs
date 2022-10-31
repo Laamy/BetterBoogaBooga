@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.MDI;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Threading;
@@ -29,6 +30,7 @@ namespace BetterBoogaBoogaLauncher
         public class RobloxProcess
         {
             public static Process roblox;
+            public static string version;
 
             public class User32
             {
@@ -63,7 +65,7 @@ namespace BetterBoogaBoogaLauncher
                 {
                     if (!CheckAdminPerms())
                     {
-                        MessageBox.Show("Roblox cant start due to needing a reinstall", "BetterBoogaBooga");
+                        MessageBox.Show("Roblox cant start due to needing a reinstall", "BBRB");
                         Process.GetCurrentProcess().Kill();
                     }
                 }
@@ -75,16 +77,29 @@ namespace BetterBoogaBoogaLauncher
             }
             else
             {
-                Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
-
                 la = Launcher.ParseArgs(args[0]);
-
-                var robloxVersions = Directory.GetDirectories(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\Roblox\\Versions");
 
                 // https://setup.rbxcdn.com/version
 
+                string robloxFolder = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+                    + "\\Roblox\\Versions";
+
+                WebClient wc = new WebClient();
+
+                RobloxProcess.version = wc.DownloadString("https://setup.rbxcdn.com/version");
+
+                if (!Directory.Exists(robloxFolder + "\\" + RobloxProcess.version))
+                {
+                    config.Write("RequiresReinstall", "1", "System");
+
+                    MessageBox.Show("Latest roblox version not detected", "BBRB");
+                    Process.GetCurrentProcess().Kill();
+                }
+
+                Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
+
                 Task.Factory.StartNew(() => {
-                    RobloxProcess.roblox = Process.Start(robloxVersions[robloxVersions.Length - 1] +
+                    RobloxProcess.roblox = Process.Start(robloxFolder + "\\" + RobloxProcess.version +
                     "\\RobloxPlayerBeta.exe",
                     $"--play -a https://www.roblox.com/Login/Negotiate.ashx -t {la.GameInfo}" +
                     $" -j {HttpUtility.UrlDecode(la.PlaceLauncherUrl)} -b {la.TrackerId} --launchtime={la.LaunchTime}" +
