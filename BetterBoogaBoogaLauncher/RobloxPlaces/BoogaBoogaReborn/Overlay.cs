@@ -68,7 +68,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                     {
                         Task.Factory.StartNew(() =>
                         {
-                            while (ACEnabled && (Focused || Keymap.IsRobloxFocused()))
+                            while (ACEnabled) // && (Focused || Keymap.IsRobloxFocused())
                             {
                                 if (numericUpDown1.Value > 0)
                                     Thread.Sleep((int)numericUpDown1.Value);
@@ -98,6 +98,8 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                 Program.RobloxProcess.roblox.MainWindowHandle,
                 out rect
             );
+
+            Console.WriteLine("hi");
 
             int x = rect.Left + 12,
                 y = rect.Top + 35; // cuz title bar & resizing

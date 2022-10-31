@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using BetterBoogaBoogaLauncher.RobloxSDK.Installer;
 using BetterBoogaBoogaLauncher.SDK;
 using BetterBoogaBoogaLauncher.SDK.Structs;
 using Microsoft.Win32;
@@ -39,10 +40,13 @@ namespace BetterBoogaBoogaLauncher
             }
         }
 
-        public static void ReplaceRoblox()
+        public static void ReplaceRoblox(string proc = null)
         {
+            if (proc == null)
+                proc = AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName;
+
             RegistryKey key = Registry.ClassesRoot.OpenSubKey("roblox-player\\shell\\open\\command", true);
-            key.SetValue(string.Empty, "\"" + AppDomain.CurrentDomain.BaseDirectory + AppDomain.CurrentDomain.FriendlyName + "\" %1");
+            key.SetValue(string.Empty, "\"" + proc + "\" %1");
             key.Close();
         }
 
@@ -50,6 +54,8 @@ namespace BetterBoogaBoogaLauncher
 
         static void Main(string[] args)
         {
+            //Application.Run(new RobloxInstaller());
+
             if (File.Exists(MDI.mdiBase + "config.ini"))
             {
                 if (config.KeyExists("RequiresReinstall", "System")
@@ -65,9 +71,7 @@ namespace BetterBoogaBoogaLauncher
 
             if (args.Length == 0 && CheckAdminPerms())
             {
-                ReplaceRoblox();
-                config.Write("RequiresReinstall", "0", "System");
-                MessageBox.Show("Installed launcher, you many now close this window.", "BetterBoogaBooga");
+                Application.Run(new InstallerWindow());
             }
             else
             {

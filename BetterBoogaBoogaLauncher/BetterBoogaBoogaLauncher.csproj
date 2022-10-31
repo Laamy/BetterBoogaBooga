@@ -50,6 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileIO.cs" />
+    <Compile Include="InstallerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstallerWindow.Designer.cs">
+      <DependentUpon>InstallerWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Keymap.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="LauncherWindow.cs">
@@ -74,6 +80,12 @@
     <Compile Include="RobloxPlaces\BoogaBoogaReborn\Overlay.Designer.cs">
       <DependentUpon>Overlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="RobloxSDK\Installer\RobloxInstaller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RobloxSDK\Installer\RobloxInstaller.Designer.cs">
+      <DependentUpon>RobloxInstaller.cs</DependentUpon>
+    </Compile>
     <Compile Include="SDK\LauncherUIRenderContext.cs" />
     <Compile Include="SDK\Structs\LActor.cs" />
     <Compile Include="SDK\Structs\LTextLabel.cs" />
@@ -83,6 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="InstallerWindow.resx">
+      <DependentUpon>InstallerWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LauncherWindow.resx">
       <DependentUpon>LauncherWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RobloxPlaces\BoogaBoogaReborn\Overlay.resx">
       <DependentUpon>Overlay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RobloxSDK\Installer\RobloxInstaller.resx">
+      <DependentUpon>RobloxInstaller.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

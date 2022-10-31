@@ -53,11 +53,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(150, 185);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.Size = new System.Drawing.Size(122, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Starting Roblox .";
             // 
@@ -93,6 +93,7 @@
             this.Controls.Add(this.formBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LauncherWindow";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LauncherWindow";
             this.Load += new System.EventHandler(this.LauncherWindow_Load);
