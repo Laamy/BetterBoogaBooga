@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -80,8 +79,10 @@ namespace BetterBoogaBoogaLauncher
 
         private void LauncherWindow_Load(object sender, EventArgs e)
         {
+            label2.Text = Program.RobloxProcess.curPlace.data.First().sourceName;
+            //label2.Text = Program.RobloxProcess.curPlace.data[0].name;
+
             placeId = HttpUtility.UrlDecode(Program.la.PlaceLauncherUrl).Split('&')[2].Split('=')[1];
-            //label2.Text = "PlaceID: " + placeId;
 
             switch (placeId)
             {
@@ -93,6 +94,11 @@ namespace BetterBoogaBoogaLauncher
 
             // update label
             label1.Text = loadingSufix + " " + String.Concat(Enumerable.Repeat(".", dots));
+        }
+
+        private void formBackground_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

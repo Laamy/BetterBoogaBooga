@@ -1,5 +1,6 @@
 ﻿#region Imports
 
+using BetterBoogaBoogaLauncher.RobloxSDK;
 using Microsoft.Win32;
 
 using System;
@@ -27,6 +28,7 @@ namespace BetterBoogaBoogaLauncher
         public class RobloxProcess
         {
             public static Process roblox;
+            public static RobloxUniverse curPlace;
             public static string version;
 
             public class User32
@@ -103,6 +105,10 @@ namespace BetterBoogaBoogaLauncher
                     if (Directory.Exists(robloxPFPath + "\\" + RobloxProcess.version))
                         robloxPath = robloxPFPath + "\\" + RobloxProcess.version;
                 }
+
+                string placeId = HttpUtility.UrlDecode(la.PlaceLauncherUrl).Split('&')[2].Split('=')[1];
+
+                RobloxProcess.curPlace = GameClient.GetMainUniverse(placeId);
 
                 Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
 

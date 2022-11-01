@@ -40,6 +40,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -80,6 +81,7 @@
     <Compile Include="RobloxPlaces\BoogaBoogaReborn\Overlay.Designer.cs">
       <DependentUpon>Overlay.cs</DependentUpon>
     </Compile>
+    <Compile Include="RobloxSDK\GameClient.cs" />
     <Compile Include="RobloxSDK\Installer\RobloxInstaller.cs">
       <SubType>Form</SubType>
     </Compile>
