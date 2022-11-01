@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.MDI;
 using System.Net;
 using System.Windows.Forms;
 
@@ -70,6 +71,11 @@ namespace BetterBoogaBoogaLauncher
                 Directory.Delete(version, true);
                 progressBar1.Value += (int)increaseBy;
             }
+
+            MDIDirectory.CheckCreate("Tmp");
+            wc.DownloadFile("https://setup.rbxcdn.com/" + Program.RobloxProcess.version + "-Roblox.exe",
+                MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
+            Process.Start(MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
 
             progressBar1.Value = 100;
 

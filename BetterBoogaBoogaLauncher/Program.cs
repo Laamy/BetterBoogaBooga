@@ -1,8 +1,5 @@
 ﻿#region Imports
 
-using BetterBoogaBoogaLauncher.RobloxSDK.Installer;
-using BetterBoogaBoogaLauncher.SDK;
-using BetterBoogaBoogaLauncher.SDK.Structs;
 using Microsoft.Win32;
 
 using System;
