@@ -92,30 +92,6 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
         private void OnAdjust(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
         {
-            var rect = new ProcessRectangle();
-
-            Program.RobloxProcess.User32.GetWindowRect(
-                Program.RobloxProcess.roblox.MainWindowHandle,
-                out rect
-            );
-
-            int x = rect.Left + 12,
-                y = rect.Top + 35; // cuz title bar & resizing
-
-            int width = rect.Right - rect.Left - 24,
-                height = rect.Bottom - rect.Top - 47;
-
-            IntPtr focusInsert = IntPtr.Zero;
-
-            if (Keymap.IsRobloxFocused()) // broken h
-                focusInsert = (IntPtr)(-1);
-            focusInsert = (IntPtr)(-2);
-
-            User32.SetWindowPos(Handle, focusInsert, x, y, width, height, 0x40);
-
-            TopMost = true;
-            //User32.SetWindowPos(Handle, new IntPtr(1), 0, 0, 0, 0, 2 | 1 | 10); // reload
-
             if (!Keymap.IsRobloxFocused() && !Focused) // hide UI if roblox/ui isn't focused
             {
                 if (Opacity != 0)
@@ -125,6 +101,29 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             {
                 if (Opacity != 1)
                     Opacity = 1;
+
+                var rect = new ProcessRectangle();
+
+                Program.RobloxProcess.User32.GetWindowRect(
+                    Program.RobloxProcess.roblox.MainWindowHandle,
+                    out rect
+                );
+
+                int x = rect.Left + 12,
+                    y = rect.Top + 35; // cuz title bar & resizing
+
+                int width = rect.Right - rect.Left - 24,
+                    height = rect.Bottom - rect.Top - 47;
+
+                IntPtr focusInsert = IntPtr.Zero;
+
+                if (Keymap.IsRobloxFocused()) // broken h
+                    focusInsert = (IntPtr)(-1);
+                focusInsert = (IntPtr)(-2);
+
+                User32.SetWindowPos(Handle, focusInsert, x, y, width, height, 0x40);
+
+                TopMost = true;
             }
         }
 
