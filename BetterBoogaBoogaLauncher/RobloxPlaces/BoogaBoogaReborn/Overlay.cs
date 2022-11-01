@@ -94,13 +94,13 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
         {
             if (!Keymap.IsRobloxFocused() && !Focused) // hide UI if roblox/ui isn't focused
             {
-                if (Opacity != 0)
-                    Opacity = 0;
+                //if (Opacity != 0)
+                    //Opacity = 0;
             }
             else
             {
-                if (Opacity != 1)
-                    Opacity = 1;
+                //if (Opacity != 1)
+                    //Opacity = 1;
 
                 var rect = new ProcessRectangle();
 
