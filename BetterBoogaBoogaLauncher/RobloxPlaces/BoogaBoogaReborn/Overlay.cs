@@ -52,6 +52,34 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             TopMost = true;
 
             Keymap.keyEvent += onKey;
+
+            /*Task.Factory.StartNew(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(1000 / 4);
+
+                    BeginInvoke((MethodInvoker)delegate ()
+                    {
+                        if (Keymap.IsRobloxFocused() && Focused)
+                        {
+                            BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                if (Opacity != 1)
+                                    Opacity = 1;
+                            });
+                        }
+                        else
+                        {
+                            BeginInvoke((MethodInvoker)delegate ()
+                            {
+                                if (Opacity != 0)
+                                    Opacity = 0;
+                            });
+                        }
+                    });
+                }
+            });*/
         }
 
         public bool ACEnabled = false;
@@ -68,7 +96,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                     {
                         Task.Factory.StartNew(() =>
                         {
-                            while (ACEnabled) // && (Focused || Keymap.IsRobloxFocused())
+                            while (ACEnabled && (Focused || Keymap.IsRobloxFocused())) // && (Focused || Keymap.IsRobloxFocused())
                             {
                                 if (numericUpDown1.Value > 0)
                                     Thread.Sleep((int)numericUpDown1.Value);
@@ -92,15 +120,10 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
         private void OnAdjust(IntPtr hWinEventHook, uint eventType, IntPtr hwnd, int idObject, int idChild, uint dwEventThread, uint dwmsEventTime)
         {
-            if (!Keymap.IsRobloxFocused() && !Focused) // hide UI if roblox/ui isn't focused
+            if (Keymap.IsRobloxFocused())
             {
-                //if (Opacity != 0)
-                    //Opacity = 0;
-            }
-            else
-            {
-                //if (Opacity != 1)
-                    //Opacity = 1;
+                if (!TopMost)
+                    TopMost = true;
 
                 var rect = new ProcessRectangle();
 
