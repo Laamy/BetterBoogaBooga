@@ -9,7 +9,7 @@ namespace BetterBoogaBoogaLauncher.RobloxSDK
     {
         private static WebClient wc = new WebClient();
 
-        public static RobloxUniverse GetMainUniverse(string id)
+        public static RobloxUniverse GetMainUniverse(string id) // gonna develop a server so i dont have to wait like this every time i wanna call an api
         {
             JavaScriptSerializer jss = new JavaScriptSerializer();
 
