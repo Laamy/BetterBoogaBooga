@@ -41,9 +41,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.GameModsTab = new System.Windows.Forms.Panel();
             this.GameNotepadTab = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -149,6 +149,7 @@
             this.label1.Size = new System.Drawing.Size(107, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "[F6] AutoClicker";
+            this.label1.Click += new System.EventHandler(this.AutoclickerKeybindPress);
             // 
             // label2
             // 
@@ -174,30 +175,18 @@
             this.GameModsTab.Controls.Add(this.panel2);
             this.GameModsTab.Location = new System.Drawing.Point(10, 6);
             this.GameModsTab.Name = "GameModsTab";
-            this.GameModsTab.Size = new System.Drawing.Size(298, 322);
+            this.GameModsTab.Size = new System.Drawing.Size(230, 256);
             this.GameModsTab.TabIndex = 3;
             this.GameModsTab.Visible = false;
             // 
             // GameNotepadTab
             // 
             this.GameNotepadTab.Controls.Add(this.textBox1);
-            this.GameNotepadTab.Location = new System.Drawing.Point(314, 3);
+            this.GameNotepadTab.Location = new System.Drawing.Point(246, 50);
             this.GameNotepadTab.Name = "GameNotepadTab";
-            this.GameNotepadTab.Size = new System.Drawing.Size(298, 322);
+            this.GameNotepadTab.Size = new System.Drawing.Size(259, 156);
             this.GameNotepadTab.TabIndex = 4;
             this.GameNotepadTab.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(298, 322);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "this is here cuz i write notes alot";
             // 
             // guna2Button1
             // 
@@ -228,6 +217,19 @@
             this.guna2Button2.TabIndex = 3;
             this.guna2Button2.Text = "Notepad";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(259, 156);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "this is here cuz i write notes alot";
             // 
             // Overlay
             // 
@@ -277,8 +279,8 @@
         private System.Windows.Forms.Panel GameModsTab;
         private System.Windows.Forms.Panel TabHolder;
         private System.Windows.Forms.Panel GameNotepadTab;
-        private System.Windows.Forms.TextBox textBox1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

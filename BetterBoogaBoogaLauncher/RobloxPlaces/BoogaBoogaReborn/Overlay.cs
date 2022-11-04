@@ -96,7 +96,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
         {
             if (e.vkey == VKeyCodes.KeyDown)
             {
-                if (e.key == Keys.F6)
+                if (e.key == acKeybind)
                 {
                     ACEnabled = !ACEnabled;
 
@@ -206,13 +206,15 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                 ctx.Window_SetPos(demo, 25, 25);
                 ctx.Window_SetSize(demo, 120, 100);
 
-                ctx.Window_Add_TextLabel(demo, "[F6] AutoClicker", 9.5f);
+                ctx.Window_Add_TextLabel(demo, "[" + acKeybind.ToString() + "] AutoClicker", 9.5f);
                 ctx.Window_Add_TextLabel(demo, "[" + (checkBox1.Checked ? "✔" : "❌") + "] Inverted", 9.5f);
                 ctx.Window_Add_TextLabel(demo, "[" + numericUpDown1.Value + "] ClickerSpeed", 9.5f);
             }
 
             ctx.DrawWindows();
         }
+
+        Keys acKeybind = Keys.F6;
 
         public void LoadConfig()
         {
@@ -221,6 +223,12 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
 
             if (Program.config.KeyExists("clickspeed", "Autoclicker"))
                 numericUpDown1.Value = decimal.Parse(Program.config.Read("clickspeed", "Autoclicker"));
+
+            if (Program.config.KeyExists("keybind", "Autoclicker"))
+            {
+                acKeybind = (Keys)decimal.Parse(Program.config.Read("keybind", "Autoclicker"));
+                label1.Text = "[" + acKeybind.ToString() + "] AutoClicker";
+            }
 
             if (Program.config.KeyExists("devmode", "Settings"))
             {
@@ -281,6 +289,29 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             HideAllTabs();
 
             GameNotepadTab.Visible = true;
+        }
+
+        bool searchingForKey = false;
+
+        private void AutoclickerKeybindPress(object sender, EventArgs e)
+        {
+            Label label = sender as Label;
+            label.Text = "[..] AutoClicker";
+
+            searchingForKey = true;
+
+            Keymap.globalKeyEvent += waitingBind;
+        }
+
+        private void waitingBind(object sender, KeyEvent e)
+        {
+            if ((int)e.key < 7) return;
+
+            acKeybind = e.key;
+            Program.config.Write("keybind", $"{(int)acKeybind}", "Autoclicker");
+            label1.Text = "[" + e.key.ToString() + "] AutoClicker";
+
+            Keymap.globalKeyEvent -= waitingBind;
         }
     }
 }

@@ -60,6 +60,10 @@ namespace BetterBoogaBoogaLauncher
                         if (keyEvent != null)
                             if (IsRobloxFocused())
                                 keyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyHeld));
+
+                        if (globalKeyEvent != null)
+                            globalKeyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyHeld));
+
                         _noKey[c] = false;
                         if (_dBuff[c] > 0)
                             continue;
@@ -69,6 +73,9 @@ namespace BetterBoogaBoogaLauncher
                             if (keyEvent != null)
                                 if (IsRobloxFocused())
                                     keyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyDown));
+
+                            if (globalKeyEvent != null)
+                                globalKeyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyDown));
                         }
                         catch
                         {
@@ -85,6 +92,9 @@ namespace BetterBoogaBoogaLauncher
                             if (keyEvent != null)
                                 if (IsRobloxFocused())
                                     keyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyUp));
+
+                            if (globalKeyEvent != null)
+                                globalKeyEvent.Invoke(this, new KeyEvent(c, VKeyCodes.KeyUp));
                         }
                         catch
                         {
