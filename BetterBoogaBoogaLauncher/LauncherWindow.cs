@@ -50,6 +50,14 @@ namespace BetterBoogaBoogaLauncher
 
                             return;
 
+                        case "10767870749": // reborn VOID
+
+                            CancelShutdown();
+                            InitRobloxDetectTask();
+                            RobloxPlaces.BoogaBoogaReborn.Index.Init();
+
+                            return;
+
                         case "11337066400": // pvp game
 
                             CancelShutdown();

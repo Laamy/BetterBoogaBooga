@@ -1,6 +1,7 @@
 ﻿using BetterBoogaBoogaLauncher.SDK;
 
 using System;
+using System.Diagnostics;
 using System.MDI; // custom library
 using System.Runtime.InteropServices;
 using System.Text;
@@ -20,6 +21,13 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
         {
             LoadConfig();
             textBox1.Text = MDIFile.CheckReplaceRead("Documents\\notes.txt", "I put notes here");
+
+            TabHolder.Controls.Add(GameModsTab);
+            GameModsTab.Dock = DockStyle.Fill;
+            GameModsTab.Visible = true;
+
+            TabHolder.Controls.Add(GameNotepadTab);
+            GameNotepadTab.Dock = DockStyle.Fill;
 
             uint robloxProcId = (uint)Program.RobloxProcess.roblox.Id;
 
@@ -247,6 +255,32 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
         {
             MDIDirectory.CheckCreate("Documents");
             MDIFile.Write("Documents\\notes.txt", textBox1.Text);
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Program.RobloxProcess.roblox.Kill();
+            Process.GetCurrentProcess().Kill();
+        }
+
+        private void HideAllTabs()
+        {
+            GameModsTab.Visible = false;
+            GameNotepadTab.Visible = false;
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            HideAllTabs();
+
+            GameModsTab.Visible = true;
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            HideAllTabs();
+
+            GameNotepadTab.Visible = true;
         }
     }
 }
