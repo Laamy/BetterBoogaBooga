@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.MDI;
+using System.Net;
 using System.Threading;
 
 namespace BetterBoogaBoogaLauncher.RobloxSDK
@@ -23,7 +25,17 @@ namespace BetterBoogaBoogaLauncher.RobloxSDK
 
         public static void ExitApp() // this is called everytime we want to exit the application
         {
+            UninitMutex();
             Process.GetCurrentProcess().Kill();
+        }
+
+        static WebClient wc = new WebClient();
+        public static void UpdateRoblox()
+        {
+            MDIDirectory.CheckCreate("Tmp");
+            wc.DownloadFile("https://setup.rbxcdn.com/" + Program.RobloxProcess.version + "-Roblox.exe",
+                MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
+            Process.Start(MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
         }
     }
 }

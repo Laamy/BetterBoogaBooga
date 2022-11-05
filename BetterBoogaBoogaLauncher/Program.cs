@@ -56,21 +56,6 @@ namespace BetterBoogaBoogaLauncher
 
         static void Main(string[] args)
         {
-            //Application.Run(new RobloxInstaller());
-
-            if (File.Exists(MDI.mdiBase + "config.ini"))
-            {
-                if (config.KeyExists("RequiresReinstall", "System")
-                    && config.Read("RequiresReinstall", "System") != "0")
-                {
-                    if (!CheckAdminPerms())
-                    {
-                        MessageBox.Show("Roblox cant start due to needing a reinstall", "BBRB");
-                        RobloxClient.ExitApp();
-                    }
-                }
-            }
-
             if (args.Length == 0)
             {
                 Application.Run(new InstallerWindow());
@@ -95,11 +80,24 @@ namespace BetterBoogaBoogaLauncher
                 {
                     config.Write("RequiresReinstall", "1", "System");
 
-                    MessageBox.Show("Latest roblox version not detected", "BBRB");
-                    RobloxClient.ExitApp();
+                    Task.Factory.StartNew(() => Application.Run(new InstallerWindow(true)));
+                    Thread.Sleep(-1);
                 }
                 else
                 {
+                    if (File.Exists(MDI.mdiBase + "config.ini"))
+                    {
+                        if (config.KeyExists("RequiresReinstall", "System")
+                            && config.Read("RequiresReinstall", "System") != "0")
+                        {
+                            if (!CheckAdminPerms())
+                            {
+                                MessageBox.Show("Roblox cant start due to needing a reinstall", "BBRB");
+                                RobloxClient.ExitApp();
+                            }
+                        }
+                    }
+
                     if (Directory.Exists(robloxFolder + "\\" + RobloxProcess.version))
                         robloxPath = robloxFolder + "\\" + RobloxProcess.version;
 

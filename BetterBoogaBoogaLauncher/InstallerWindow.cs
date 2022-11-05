@@ -11,7 +11,12 @@ namespace BetterBoogaBoogaLauncher
 {
     partial class InstallerWindow : Form
     {
-        public InstallerWindow() => InitializeComponent();
+        bool hasToRepair = false;
+        public InstallerWindow(bool reinstall = false)
+        {
+            hasToRepair = reinstall;
+            InitializeComponent();
+        }
 
         private void InstallApp(object sender, EventArgs e) // this one is instant so it doesnt really matter
         {
@@ -73,10 +78,7 @@ namespace BetterBoogaBoogaLauncher
                 progressBar1.Value += (int)increaseBy;
             }
 
-            MDIDirectory.CheckCreate("Tmp");
-            wc.DownloadFile("https://setup.rbxcdn.com/" + Program.RobloxProcess.version + "-Roblox.exe",
-                MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
-            Process.Start(MDI.mdiBase + "\\Tmp\\RobloxPlayerLauncher.exe");
+            RobloxClient.UpdateRoblox(); // this is a massive flaw..
 
             progressBar1.Value = 100;
 
@@ -128,6 +130,12 @@ namespace BetterBoogaBoogaLauncher
 
         private void InstallerWindow_Load(object sender, EventArgs e)
         {
+            if (hasToRepair)
+            {
+                RobloxClient.UpdateRoblox();
+                MessageBox.Show("Reinstall bbrb to update roblox");
+            }
+
             if (!Program.CheckAdminPerms())
             {
                 button1.Enabled = false;
