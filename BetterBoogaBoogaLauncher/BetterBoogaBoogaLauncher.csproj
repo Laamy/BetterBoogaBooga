@@ -91,6 +91,7 @@
     <Compile Include="RobloxSDK\Installer\RobloxInstaller.Designer.cs">
       <DependentUpon>RobloxInstaller.cs</DependentUpon>
     </Compile>
+    <Compile Include="RobloxSDK\RobloxClient.cs" />
     <Compile Include="SDK\LauncherUIRenderContext.cs" />
     <Compile Include="SDK\Structs\LActor.cs" />
     <Compile Include="SDK\Structs\LTextLabel.cs" />

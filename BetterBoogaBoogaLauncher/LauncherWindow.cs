@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BetterBoogaBoogaLauncher.RobloxSDK;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
@@ -29,7 +30,7 @@ namespace BetterBoogaBoogaLauncher
                     Thread.Sleep(1);
 
                     if (Process.GetProcessesByName("RobloxPlayerBeta").Length == 0)
-                        Process.GetCurrentProcess().Kill(); // means no roblox instances r open
+                        RobloxClient.ExitApp(); // means no roblox instances r open
                 }
             });
         }
@@ -58,6 +59,14 @@ namespace BetterBoogaBoogaLauncher
 
                             return;
 
+                        case "11471636191": // Ooga Booga
+
+                            CancelShutdown();
+                            InitRobloxDetectTask();
+                            RobloxPlaces.BoogaBoogaReborn.Index.Init();
+
+                            return;
+
                         case "11337066400": // pvp game
 
                             CancelShutdown();
@@ -67,7 +76,7 @@ namespace BetterBoogaBoogaLauncher
                             return;
                     }
 
-                    Process.GetCurrentProcess().Kill();
+                    RobloxClient.ExitApp();
                 }
             }
         }

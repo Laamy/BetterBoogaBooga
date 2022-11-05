@@ -1,6 +1,7 @@
 ﻿#region Imports
 
 using BetterBoogaBoogaLauncher.RobloxSDK;
+
 using Microsoft.Win32;
 
 using System;
@@ -65,7 +66,7 @@ namespace BetterBoogaBoogaLauncher
                     if (!CheckAdminPerms())
                     {
                         MessageBox.Show("Roblox cant start due to needing a reinstall", "BBRB");
-                        Process.GetCurrentProcess().Kill();
+                        RobloxClient.ExitApp();
                     }
                 }
             }
@@ -95,7 +96,7 @@ namespace BetterBoogaBoogaLauncher
                     config.Write("RequiresReinstall", "1", "System");
 
                     MessageBox.Show("Latest roblox version not detected", "BBRB");
-                    Process.GetCurrentProcess().Kill();
+                    RobloxClient.ExitApp();
                 }
                 else
                 {
@@ -111,6 +112,9 @@ namespace BetterBoogaBoogaLauncher
                 RobloxProcess.curPlace = GameClient.GetMainUniverse(placeId);
 
                 Task.Factory.StartNew(() => Application.Run(new LauncherWindow()));
+
+                // multi instance cuz im a fucking gay fuck
+                RobloxClient.InitMutex();
 
                 Task.Factory.StartNew(() => {
                     RobloxProcess.roblox = Process.Start(robloxPath + "\\RobloxPlayerBeta.exe",

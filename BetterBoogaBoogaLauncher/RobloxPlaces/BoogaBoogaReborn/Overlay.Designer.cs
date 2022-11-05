@@ -46,8 +46,8 @@
             this.GameNotepadTab = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -56,7 +56,6 @@
             this.panel3.SuspendLayout();
             this.GameNotepadTab.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -230,7 +229,7 @@
             // GameNotepadTab
             // 
             this.GameNotepadTab.Controls.Add(this.textBox1);
-            this.GameNotepadTab.Location = new System.Drawing.Point(10, 287);
+            this.GameNotepadTab.Location = new System.Drawing.Point(334, 6);
             this.GameNotepadTab.Name = "GameNotepadTab";
             this.GameNotepadTab.Size = new System.Drawing.Size(248, 35);
             this.GameNotepadTab.TabIndex = 4;
@@ -252,30 +251,12 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel4.Controls.Add(this.numericUpDown2);
+            this.panel4.Controls.Add(this.checkBox3);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(10, 115);
+            this.panel4.Location = new System.Drawing.Point(153, 66);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(130, 78);
+            this.panel4.Size = new System.Drawing.Size(130, 63);
             this.panel4.TabIndex = 3;
-            this.panel4.Visible = false;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(12, 43);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(104, 20);
-            this.numericUpDown2.TabIndex = 2;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            33,
-            0,
-            0,
-            0});
             // 
             // label3
             // 
@@ -286,6 +267,19 @@
             this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "[F] QuickPickup";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(12, 37);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(65, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "Enabled";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // Overlay
             // 
@@ -321,7 +315,6 @@
             this.GameNotepadTab.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,7 +338,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }

@@ -1,4 +1,5 @@
-﻿using BetterBoogaBoogaLauncher.SDK;
+﻿using BetterBoogaBoogaLauncher.RobloxSDK;
+using BetterBoogaBoogaLauncher.SDK;
 
 using System;
 using System.Diagnostics;
@@ -115,6 +116,17 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
                             }
                             ACEnabled = false;
                         }); // hopefully this optimizes it a bit
+                    }
+                }
+            }
+
+            if (e.vkey == VKeyCodes.KeyHeld)
+            {
+                if (e.key == Keys.F)
+                {
+                    if (checkBox3.Checked) //Console.WriteLine("Spam F");
+                    {
+                        //SendKeys.Send("F");
                     }
                 }
             }
@@ -268,7 +280,7 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
         private void label2_Click(object sender, EventArgs e)
         {
             Program.RobloxProcess.roblox.Kill();
-            Process.GetCurrentProcess().Kill();
+            RobloxClient.ExitApp();
         }
 
         private void HideAllTabs()
@@ -312,6 +324,13 @@ namespace BetterBoogaBoogaLauncher.RobloxPlaces.BoogaBoogaReborn
             label1.Text = "[" + e.key.ToString() + "] AutoClicker";
 
             Keymap.globalKeyEvent -= waitingBind;
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            Program.config.Write("enabled", checkBox3.Checked ? "1" : "0", "QuickPickup");
+
+            Invalidate();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BetterBoogaBoogaLauncher.RobloxSDK;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -123,7 +124,7 @@ namespace BetterBoogaBoogaLauncher
         }
 
         private void InstallerWindow_FormClosing(object sender, FormClosingEventArgs e)
-            => Process.GetCurrentProcess().Kill();
+            => RobloxClient.ExitApp();
 
         private void InstallerWindow_Load(object sender, EventArgs e)
         {
