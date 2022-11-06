@@ -16,5 +16,8 @@ said utilities are accessed via the roblox icon in the top left corner
 ![ingame](https://i.imgur.com/svsKL0v.png)
 
 # How to install?
-Download the latest release .exe file then run it as administrator & click install then wait
+Download the latest release .exe & .dll files then run it as administrator & click install then wait
 ![installer](https://user-images.githubusercontent.com/83557555/199129036-11f39eb7-40a0-48ef-8975-a69fda57ac7a.png)
+
+If the roblox icon doesnt show up in the top right corner it means you HAVEN'T DOWNLOADED THE REQUIRED DLL's!
+make sure to download them and put them in the same folder as the executable
