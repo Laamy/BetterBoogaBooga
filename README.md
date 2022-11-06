@@ -1,6 +1,10 @@
 # Links
 Discord: https://discord.gg/NaSuW2bSYY
 
+# Support
+Roblox BETA & Public
+Windows 10/11
+
 # Why doesnt the UI show up unless im in reborn or the booga pvp game?
 because its built for booga but we will go ahead and add a way to access the menu in every roblox place soon
 
