@@ -2,7 +2,7 @@
 Discord: https://discord.gg/NaSuW2bSYY
 
 # Support
-Roblox BETA & Public <\br>
+Roblox BETA & Public </br>
 Windows 10/11
 
 # Why doesnt the UI show up unless im in reborn or the booga pvp game?
