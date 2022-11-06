@@ -1,3 +1,6 @@
+# Information
+Downloads: 7
+
 # Links
 Discord: https://discord.gg/NaSuW2bSYY
 
