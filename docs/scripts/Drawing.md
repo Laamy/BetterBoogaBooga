@@ -25,3 +25,10 @@ local colour = Color.hex(255, 0, 0, 255)
 local obj = Drawing.new("Text", 50, 50, colour, "Hello world!") -- type, x, y, colour, text
 Drawing.visible(obj, true)
 ```
+
+```lua
+local colour = Color.hex(255, 0, 0, 255)
+
+local obj = Drawing.new("Square", 50, 50, 200, 200, colour, 8) -- type, x, y, sizex, sizey, colour, scale
+Drawing.visible(obj, true)
+```
