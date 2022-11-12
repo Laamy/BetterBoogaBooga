@@ -63,22 +63,21 @@ Replace orig with your own custom detour function then return the pointer back t
 # Details
 
 rconsoleprint the color codes for the respected color
-https://cplusplus.com/forum/beginner/54360/ for the color codes
-| Color  | Code |
-| ------------- | ------------- |
-| Black  | !BLACK!  |
-| Blue | !BLUE! |
-| Green | !GREEN! |
-| Cyan | !CYAN! |
-| Red | !RED! |
-| Magenta | !MAGENTA! |
-| Brown | !BROWN! |
-| Light Gray | !LIGHT_GRAY! |
-| Dark Gray | !DARK_GRAY! |
-| Light Blue  | !LIGHT_BLUE! |
-| Light Green | !LIGHT_GREEM! |
-| Light Cyan | !LIGHT_CYAN! |
-| Light Red | !LIGHT_RED! |
-| Light Magenta | !LIGHT_MAGENTA! |
-| Yellow | !YELLOW! |
-| White | !WHITE! |
+| Id | Color  | Code |
+| ------------- | ------------- | ------------- |
+| 1 | Black  | !BLACK!  |
+| 2 | Blue | !BLUE! |
+| 3 | Green | !GREEN! |
+| 4 | Cyan | !CYAN! |
+| 5 | Red | !RED! |
+| 6 | Magenta | !MAGENTA! |
+| 7 | Brown | !BROWN! |
+| 8 | Light Gray | !LIGHT_GRAY! |
+| 9 | Dark Gray | !DARK_GRAY! |
+| 10 | Light Blue  | !LIGHT_BLUE! |
+| 11 | Light Green | !LIGHT_GREEM! |
+| 12 | Light Cyan | !LIGHT_CYAN! |
+| 13 | Light Red | !LIGHT_RED! |
+| 14 | Light Magenta | !LIGHT_MAGENTA! |
+| 15 | Yellow | !YELLOW! |
+| 16 | White | !WHITE! |
