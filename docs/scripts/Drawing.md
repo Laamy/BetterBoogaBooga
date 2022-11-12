@@ -32,3 +32,10 @@ local colour = Color.new(255, 0, 0, 255)
 local obj = Drawing.new("Square", 50, 50, 200, 200, colour, 8) -- type, x, y, sizex, sizey, colour, scale
 Drawing.visible(obj, true)
 ```
+
+```lua
+local colour = Color.new(255, 0, 0, 255)
+
+local obj = Drawing.new("Triangle", 50, 50, 200, 50, 50, 200, colour) -- type, x, y, x2, y2, x3, y3 colour
+Drawing.visible(obj, true)
+```
