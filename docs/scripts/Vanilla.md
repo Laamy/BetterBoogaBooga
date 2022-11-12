@@ -62,7 +62,7 @@ Replace orig with your own custom detour function then return the pointer back t
 
 # Details
 
-rconsoleprint the color codes for the respected color
+rconsoleprint the color codes (NOT ID) for the respected color
 | Id | Color  | Code |
 | ------------- | ------------- | ------------- |
 | 0 | Black  | !BLACK!  |
