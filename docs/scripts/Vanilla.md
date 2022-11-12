@@ -65,19 +65,19 @@ Replace orig with your own custom detour function then return the pointer back t
 rconsoleprint the color codes for the respected color
 | Id | Color  | Code |
 | ------------- | ------------- | ------------- |
-| 1 | Black  | !BLACK!  |
-| 2 | Blue | !BLUE! |
-| 3 | Green | !GREEN! |
-| 4 | Cyan | !CYAN! |
-| 5 | Red | !RED! |
-| 6 | Magenta | !MAGENTA! |
-| 7 | Brown | !BROWN! |
-| 8 | Light Gray | !LIGHT_GRAY! |
-| 9 | Dark Gray | !DARK_GRAY! |
-| 10 | Light Blue  | !LIGHT_BLUE! |
-| 11 | Light Green | !LIGHT_GREEM! |
-| 12 | Light Cyan | !LIGHT_CYAN! |
-| 13 | Light Red | !LIGHT_RED! |
-| 14 | Light Magenta | !LIGHT_MAGENTA! |
-| 15 | Yellow | !YELLOW! |
-| 16 | White | !WHITE! |
+| 0 | Black  | !BLACK!  |
+| 1 | Blue | !BLUE! |
+| 2 | Green | !GREEN! |
+| 3 | Cyan | !CYAN! |
+| 4 | Red | !RED! |
+| 5 | Magenta | !MAGENTA! |
+| 6 | Brown | !BROWN! |
+| 7 | Light Gray | !LIGHT_GRAY! |
+| 8 | Dark Gray | !DARK_GRAY! |
+| 9 | Light Blue  | !LIGHT_BLUE! |
+| 10 | Light Green | !LIGHT_GREEM! |
+| 11 | Light Cyan | !LIGHT_CYAN! |
+| 12 | Light Red | !LIGHT_RED! |
+| 13 | Light Magenta | !LIGHT_MAGENTA! |
+| 14 | Yellow | !YELLOW! |
+| 15 | White | !WHITE! |
