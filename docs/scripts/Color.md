@@ -1,6 +1,7 @@
 # Functions
 
 ```cpp
+int new(int r, int g, int b, int a);
 int hex(int r, int g, int b, int a);
 ```
 Get the hex for the given RGBA values
