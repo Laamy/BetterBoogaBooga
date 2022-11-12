@@ -51,6 +51,11 @@ void rconsolename(const char* str);
 Set the external console window title
 
 ```cpp
+const char* rconsoleinput();
+```
+Yields the thread then returns whatever the user has entered as input into the external console
+
+```cpp
 void* hookfunction(void* orig, void* detour);
 ```
 Replace orig with your own custom detour function then return the pointer back to the original
