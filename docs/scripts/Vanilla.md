@@ -63,6 +63,7 @@ Replace orig with your own custom detour function then return the pointer back t
 # Details
 
 rconsoleprint the color codes for the respected color
+https://cplusplus.com/forum/beginner/54360/ for the color codes
 | Color  | Code |
 | ------------- | ------------- |
 | Black  | !BLACK!  |
