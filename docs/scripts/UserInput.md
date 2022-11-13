@@ -7,7 +7,7 @@ Connect func to the keyevent stream
 
 # Details
 
-```cpp
+```lua
 local function OnKeyStuff(key, held)
     print(tostring(key) .. " " .. tostring(held))
 end)
