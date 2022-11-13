@@ -51,6 +51,11 @@ void rconsolename(const char* str);
 Set the external console window title
 
 ```cpp
+int, int getmouse();
+```
+get the crosshair position roblox window wise
+
+```cpp
 const char* rconsoleinput();
 ```
 Yields the thread then returns whatever the user has entered as input into the external console
