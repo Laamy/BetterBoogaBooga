@@ -12,4 +12,5 @@ local function OnKeyStuff(key, held)
     print(tostring(key) .. " " .. tostring(held))
 end
 
-UserInput.OnKeyEvent(OnKeyStuff)```
+UserInput.OnKeyEvent(OnKeyStuff)
+```
