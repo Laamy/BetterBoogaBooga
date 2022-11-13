@@ -8,6 +8,8 @@ Connect func to the keyevent stream
 # Details
 
 ```cpp
-UserInput.OnKeyEvent(function(key, held)
+local function OnKeyStuff(key, held)
     print(tostring(key) .. " " .. tostring(held))
-end)```
+end)
+
+UserInput.OnKeyEvent(OnKeyStuff)```
