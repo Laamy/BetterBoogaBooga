@@ -56,6 +56,16 @@ int, int getmouse();
 get the crosshair position roblox window wise
 
 ```cpp
+void setclipboard(const char* str);
+```
+Set the global clipboard to str
+
+```cpp
+void messagebox(const char* title, const char* captions, uint flags);
+```
+Show a messagebox window (only works if roblox window is the currently active window)
+
+```cpp
 const char* rconsoleinput();
 ```
 Yields the thread then returns whatever the user has entered as input into the external console
