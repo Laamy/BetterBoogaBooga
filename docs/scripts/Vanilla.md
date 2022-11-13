@@ -36,6 +36,36 @@ void keyrelease(char key);
 Simulate a keyrelease
 
 ```cpp
+void mouse1click();
+```
+Simulate a full left mouse click
+
+```cpp
+void mouse1press();
+```
+Simulate a left mouse press
+
+```cpp
+void mouse1release();
+```
+Simulate a left mouse release
+
+```cpp
+void mouse2click();
+```
+Simulate a full right mouse click
+
+```cpp
+void mouse2press();
+```
+Simulate a right mouse press
+
+```cpp
+void mouse2release();
+```
+Simulate a right mouse release
+
+```cpp
 void rconsoleprint(const char* str);
 ```
 Lets you print to the external console window
