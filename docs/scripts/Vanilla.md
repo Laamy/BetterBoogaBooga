@@ -1,6 +1,12 @@
 # Functions
 
 ```cpp
+const char* getexecutorname();
+const char* identifyexecutor();
+```
+Returns the name of the executor (To match up with scriptware)
+
+```cpp
 void print(const char* str);
 ```
 Lets you print to console
