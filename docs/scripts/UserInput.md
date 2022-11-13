@@ -10,6 +10,6 @@ Connect func to the keyevent stream
 ```lua
 local function OnKeyStuff(key, held)
     print(tostring(key) .. " " .. tostring(held))
-end)
+end
 
 UserInput.OnKeyEvent(OnKeyStuff)```
