@@ -18,7 +18,7 @@ Cast an error in the scripts tracks with a custom message
 ```cpp
 void wait(float x);
 ```
-Wait "x" amount of seconds
+Wait "x" amount of seconds (not linked to framerate so you can wait for as little as you want)
 
 ```cpp
 bool iswindowactive();
