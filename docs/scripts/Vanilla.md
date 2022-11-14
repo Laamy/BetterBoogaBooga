@@ -122,6 +122,12 @@ Show a messagebox window (only works if roblox window is the currently active wi
 </br> </br>
 
 ```cpp
+void firesignal(void* signal, ...);
+```
+Fake a signal with arguments
+</br> </br>
+
+```cpp
 const char* rconsoleinput();
 ```
 Yields the thread then returns whatever the user has entered as input into the external console
