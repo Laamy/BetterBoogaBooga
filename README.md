@@ -1,6 +1,6 @@
 # BetterBoogaBooga
 
-None of this breaks roblox/reborn ToS
+None of this breaks roblox/reborn ToS</br>
 This is a custom launcher that builds its self into roblox to enhance your gameplay experience
 
 ![image](https://user-images.githubusercontent.com/83557555/200167042-508f5966-6544-416b-aa7c-a22b5b25ca2e.png)
