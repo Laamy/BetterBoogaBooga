@@ -38,6 +38,18 @@ Check if roblox is in focus/the currently active window
 </br> </br>
 
 ```cpp
+void* getfenv(void* c);
+```
+Get the function environment of c
+</br> </br>
+
+```cpp
+void* getreg();
+```
+Get the lua registry
+</br> </br>
+
+```cpp
 void keypress(char key);
 ```
 Simulate a keypress
