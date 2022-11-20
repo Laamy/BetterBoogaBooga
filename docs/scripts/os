@@ -1,6 +1,0 @@
-# Functions
-
-```cpp
-int clock()
-```
-Get the current time in ms
